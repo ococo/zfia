@@ -8,3 +8,5 @@ You need to create application/configuration/config.ini from
 the supplied default version. The easiest thing to do is
 copy the config.ini.default file to config.ini and then
 modify if you need to.
+
+https://www.manning.com/books/zend-framework-in-action
