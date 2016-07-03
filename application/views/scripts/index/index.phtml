@@ -1,0 +1,12 @@
+<h1><?php echo $this->escape($this->title);?></h1>
+<p>Welcome to <i>Places to take the kids</i>! This site will help you to 
+plan a good day out for you and your children. Every place featured on 
+this site has been reviewed by people like you, so you'll be able to 
+make informed decisions with no marketing waffle!</p>
+
+<?php if(count($this->places)) : ?>
+<h2>Recent places</h2>
+<table>
+<?php echo $this->partialLoop('index/_placeRow.phtml', $this->places) ?>
+</table>
+<?php endif; ?>

@@ -1,0 +1,8 @@
+            <div id="search">
+            <h3>Search:</h3>
+            <form method="get" action="<?php echo $this->baseUrl();?>/search">
+                <input type="text" name="q" value="<?php if(array_key_exists('q', $_GET)) { echo $this->escape($_GET['q']); } ;?>" class="input-text">
+                <input type="submit" name="search" class="input-submit" value="Go">
+                <br style="clear:right" />
+            </form>
+            </div>

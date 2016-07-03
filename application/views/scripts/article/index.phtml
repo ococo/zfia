@@ -1,0 +1,28 @@
+<h1><?php echo $this->escape($this->article->title);?></h1>
+<?php echo $this->article->body;?>
+<?php if(count($this->reviews)) : ?>
+<h2>Reviews</h2>
+<ul id="reviews">
+<?php foreach($this->reviews as $review) : ?>
+<li>
+    <p class="review-meta">
+        <?php echo $this->escape($review->user_name); ?> on <?php echo $this->displayDate($review->date_updated); ?>
+    </p>
+    <p class="review-body"><?php echo $this->escape($review->body); ?></p>
+</li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+
+<?php if ($this->flickr && $this->flickr->totalResults() > 0): ?>
+<h3>Images from Flickr</h3>
+<ul id="flickr">
+<?php foreach ($this->flickr as $key => $result): ?>
+    <li>
+        <a href="<?php echo $result->Small->clickUri; ?>">
+            <img src="<?php echo $result->Small->uri; ?>" width="<?php echo $result->Small->width; ?>" height="<?php echo $result->Small->height; ?>" alt="<?php echo $result->title; ?>" /></a>
+        <a href="<?php echo $result->Small->clickUri; ?>" title="<?php echo $result->title; ?>"><?php echo $result->title; ?></a>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>

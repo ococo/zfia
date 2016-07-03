@@ -1,0 +1,4 @@
+<?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/form.css'); ?>
+<h2>Add Support Ticket</h2>
+<?php echo(empty($this->formResponse) ? '' : '<p class="errors">' . $this->formResponse . '</p>'); ?>
+<?php echo $this->form; ?>

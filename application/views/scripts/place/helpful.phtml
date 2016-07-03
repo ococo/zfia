@@ -1,0 +1,28 @@
+<li>
+<p class="review-meta">
+    <?php echo $this->displayDate($this->date_updated); ?>
+</p>
+<p class="review-body">
+    <?php echo $this->escape($this->body); ?>
+</p>
+
+<div class="helpful">
+<?php echo $this->partial('place/_helpful.phtml', array('id'=>$this->id)) ?>
+    <span id="yes-<?php echo $this->id?>" >
+        <?php echo $this->helpful_yes; ?></span>
+    of 
+    <span id="total-<?php echo $this->id?>" >
+        <?php echo $this->helpful_total; ?></span>
+    people found this review helpful. Was this review 
+    helpful to you? 
+    <span id="yesno-<?php echo $this->id?>" >
+    <a class="reviewLink" href="#" onclick="new RF(1, 
+        <?php echo $this->id; ?>,'<?php echo $this->baseUrl; ?>');
+        return false;">Yes</a> 
+    <a class="reviewLink" href="#" onclick="new RF(0, 
+        <?php echo $this->id; ?>,'<?php echo $this->baseUrl; ?>'); 
+        return false;">No</a>
+    <span id="spinner-<?php echo $this->id ?>"></span></span>
+    <div id="message-<?php echo $this->id ?>"></div>
+</div>
+</li>

@@ -1,0 +1,16 @@
+<li>
+<div class="review-meta">
+    <?php echo $this->escape($this->user_name); ?> on
+    <?php echo $this->displayDate($this->date_updated); ?>
+</div>
+<div class="review-body">
+    <?php echo $this->escape($this->body); ?>
+</div>
+
+<div class="helpful">
+<?php echo $this->partial('place/_reviewFeedback.phtml', 
+    array('id'=>$this->id, 
+        'helpful_yes'=>$this->helpful_yes,
+        'helpful_total'=>$this->helpful_total)) ?>
+</div>
+</li>

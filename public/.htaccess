@@ -1,0 +1,26 @@
+# Rewrite rules for Zend Framework
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/xmlrpc/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php
+
+# Security: Don't allow browsing of directories
+Options -Indexes
+
+# Performance settings
+FileETag none
+
+#<IfModule deflate_module>
+#    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+#</IfModule>
+
+# Performance settings: don't use on development!
+#<IfModule expires_module>
+#    ExpiresActive On
+#    ExpiresByType text/css "access plus 1 month"
+#    ExpiresByType image/jpeg "access plus 1 month"
+#    ExpiresByType image/gif "access plus 1 month"
+#    ExpiresByType image/png "access plus 1 month"
+#    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+#</IfModule>

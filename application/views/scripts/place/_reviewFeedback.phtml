@@ -1,0 +1,20 @@
+<?php
+$id = $this->id;
+$yesCount = $this->helpful_yes;
+$totalCount = $this->helpful_total;
+?>
+
+<span id="counts-<?php echo $id ?>" >
+    <?php echo $yesCount ?> of <?php echo $totalCount; ?>
+</span>
+people found this review helpful. Was this review 
+helpful to you? 
+<span id="yesno-<?php echo $id?>" >
+    <a href="#" onclick="new ReviewFeedback(1, 
+        <?php echo $id; ?>,'<?php echo $this->baseUrl(); ?>');
+        return false;">Yes</a> 
+    <a href="#" onclick="new ReviewFeedback(0, 
+        <?php echo $id; ?>,'<?php echo $this->baseUrl(); ?>'); 
+        return false;">No</a>
+<span id="spinner-<?php echo $id ?>"></span></span>
+<div id="message-<?php echo $id ?>"></div>

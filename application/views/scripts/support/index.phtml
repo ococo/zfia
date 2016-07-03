@@ -1,0 +1,28 @@
+<form action="/support/delete/" method="post" name="content" >
+    <table summary="Support items" cellspacing="0" width="98%">
+        <caption>Support Issues</caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Created</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Type</th>
+            </tr>
+            <?php foreach( $this->issues as $issue ): ?>
+            <tr class="<?php echo( $key % 2 == 1 ? 'odd' : 'even' ); ?>">
+                <td style="text-align:center"><input type="checkbox" name="contents[]" id="content<?php echo $issue->id; ?>" value="<?php echo $issue->id; ?>" /></td>
+                <td><a href="/support/edit/id/<?php echo $issue->id ?>/"><?php echo $issue->id; ?></a></td>
+                <td><a href="/support/edit/id/<?php echo $issue->id ?>/"><?php echo $issue->title; ?></a></td>
+                <td><?php echo $issue->date_created; ?></td>
+                <td><?php echo $issue->status; ?></td>
+                <td><?php echo $issue->priority; ?></td>
+                <td><?php echo $issue->type; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <p class="submit"><input type="submit" name="delete" id="delete" value="Delete Selected Content" /></p>
+</form>

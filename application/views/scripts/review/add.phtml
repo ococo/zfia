@@ -1,0 +1,53 @@
+<?php if ($this->placeId > 0) : ?>
+<h1>Add a review to "<?php echo $this->escape($this->place->name); ?>"</h1>
+
+<?php
+if(count($this->messages)) : ?>
+<div id="form-errors">
+<p>There is a problem with your form:
+<ul>
+<?php
+	foreach($this->messages as $field => $messageList) :
+    	foreach($messageList as $message) :
+?>
+    <li><?php echo $message; ?></li>
+<?php
+        endforeach;
+    endforeach;
+?>
+</ul>
+</div>
+<?php
+endif;
+?>
+<form method="post" action="<?php echo $this->url(array('controller'=>'review', 'action'=>'add'), null, true); ?>" />
+    <input type="hidden" name="placeId" value="<?php echo $this->placeId; ?>" />
+    <div>
+        <label for="name">Your name</label>
+        <span id="name"><?php echo $this->escape($this->username); ?></span>
+    </div>
+    <div>
+        <label for="rating">Your rating</label>
+        <?php 
+            $options = array(1=>1, 2=>2, 3=>3, 4=>4, 5=>5);
+            echo $this->FormRadio('rating', $value = $this->rating, $attribs = null,
+                $options, $listsep = " "); 
+                
+        ?>
+    </div>
+    <div>
+        <label for="review">Your review</label>
+        <textarea rows="10" cols="60" name="review" id="review" ><?php echo $this->review; ?></textarea>
+    </div>
+    <div>
+        <input type="submit" name="submitAction" value="Save" id="save" />
+        <input type="submit" name="submitAction" value="Cancel" id="cancel" />
+    </div>
+</form>
+
+
+<?php else : ?>
+<h1>Sorry</h1>
+<p>Unable to find which place you are intending to add a comment to.  
+<p><a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index')); ?>">Continue</a></p>
+<?php endif; ?>

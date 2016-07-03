@@ -1,0 +1,9 @@
+<?php
+
+// Set your Zend Framework library path(s) here
+set_include_path(get_include_path() . PATH_SEPARATOR . dirname(dirname(dirname(getcwd()))) . '/zend_framework/trunk/incubator/library/' );
+set_include_path(get_include_path() . PATH_SEPARATOR . dirname(dirname(dirname(getcwd()))) . '/zend_framework/trunk/library/' );
+
+include '../../application/bootstrap.php';
+$bootstrap = new Bootstrap('general');
+$bootstrap->runXmlRpc();

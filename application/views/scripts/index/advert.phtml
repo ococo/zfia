@@ -1,0 +1,11 @@
+<?php $amazonAds =  $this->amazonAds('kids,travel', 2); 
+if(!is_null($amazonAds)) {
+    echo $amazonAds;
+} else {
+?>
+<a id="right-ad" href="<?php echo $this->url(array('controller'=>'contact')); ?>">
+    <img src="<?php echo $this->baseUrl(); ?>/img/advert.gif" 
+        border=0 title="" alt="advertise here" />
+</a>
+<?php
+}

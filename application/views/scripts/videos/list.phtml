@@ -1,0 +1,8 @@
+<h1>Videos in <?php echo $this->videoFeed->title->text; ?></h1>
+<dl>
+<?php foreach ($this->videoFeed as $videoEntry): ?>
+    <?php $id = substr(strrchr($videoEntry->getFlashPlayerUrl(), '/'), 1); ?>
+    <dt><img src="" /><a href="/videos/view/id/<?php echo $id; ?>/"><?php echo $videoEntry->mediaGroup->title->text; ?></a></dt>
+    <dd><?php echo $videoEntry->mediaGroup->description->text; ?></dd>
+<?php endforeach; ?>
+</dl>

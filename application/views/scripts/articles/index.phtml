@@ -1,0 +1,16 @@
+<h1><?php echo $this->escape($this->title);?></h1>
+<p>Welcome to <em>Places to take the kids</em>! This site will help you
+to plan a good day out for you and your children. Every article featured on
+this site has been reviewed by people like you, so you'll be able to
+make informed decisions with no marketing waffle!</p>
+<h2>Recent articles</h2>
+<?php if(count($this->articles)) : ?>
+<table>
+<?php foreach($this->articles as $article) : ?>
+<tr>
+    <td><a href="<?php echo $this->baseUrl();?>/article/index/id/<?php echo $article->id; ?>"><?php echo $this->escape($article->title); ?></a></td>
+    <td><?php echo $this->displayDate($article->date_updated); ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php endif; ?>

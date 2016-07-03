@@ -1,0 +1,52 @@
+<?php if (empty($this->support['id'])): ?>
+    <h2>Add Support Topic</h2>
+<?php else: ?>
+    <h2><?php echo $this->escape($this->support['title']); ?></h2>
+    <h3>
+    ID #<?php echo $this->support['id']; ?> 
+    | Created by <a href="#" title="Users Profile"><?php echo $this->creator->name(); ?></a> 
+</h3>
+<?php endif; ?>
+
+<?php echo $this->form; ?>
+
+<h2>Old Form</h2>
+
+<form action="<?php echo $this->form_action; ?>" method="post" name="content_edit" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php echo $this->support['id']; ?>" />
+    <input type="hidden" name="contributor" value="<?php echo $this->support['contributor']; ?>" />
+    <input type="hidden" id="addid" value="4" />
+    <p>
+        <label class="" for="type">Type</label>
+        <select name="type" id="type">
+            <?php foreach( $this->types as $key => $type ) : ?>
+                <option value="<?php echo $type; ?>" <?php echo( $type == $this->support['type'] ? 'selected="selected"' : ''); ?>><?php echo ucwords( str_replace( '_',' ', $type ) ); ?></option>
+            <?php endforeach; ?>
+        </select>
+    </p>
+    <p>
+        <label class="" for="priority">Priority</label>
+        <select name="priority" id="priority">
+            <?php foreach( $this->priorities as $priority ) : ?>
+            <option value="<?php echo $priority['id']; ?>" <?php echo( $priority['id'] == $this->edit_content['priority'] ? 'selected="selected"' : ''); ?>><?php echo $priority['name']; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </p>
+    <p>
+        <label class="" for="status">Status</label>
+        <select name="status" id="status">
+            <?php foreach( $this->status as $key => $status ) : ?>
+                <option value="<?php echo $status; ?>" <?php echo( $status == $this->support['status'] ? 'selected="selected"' : ''); ?>><?php echo ucwords( str_replace( '_',' ', $status ) ); ?></option>
+            <?php endforeach; ?>
+        </select>
+    </p>
+    <p>
+        <label class="" for="title">Title</label>
+        <?php echo $this->formText('title', $this->support['title'], array('size' => 40, 'maxlength' => 255, 'id'=>'title')); ?>
+    </p>
+    <p>
+        <label class="" for="body">Body</label>
+        <textarea name="body" rows="6" cols="70" id="body"><?php echo $this->support['body']; ?></textarea>
+    </p>
+    <p class="submit"><input type="submit" class="wymupdate" value="Submit" id="submit" name="submit" /></p>
+</form>

@@ -1,0 +1,17 @@
+<?php
+$this->headScript()->appendFile($this->baseUrl().'/js/yahoo.js');
+$this->headScript()->appendFile($this->baseUrl().'/js/event.js');
+$this->headScript()->appendFile($this->baseUrl().'/js/connection.js');
+$this->headScript()->appendFile($this->baseUrl().'/js/review_feedback.js');
+?>
+<h1><?php echo $this->escape($this->title);?></h1>
+<div class="location">
+<?php echo nl2br($this->escape($this->displayAddress($this->place)));?>
+</div>
+
+<h2>Reviews</h2>
+<?php if(count($this->reviews)) : ?>
+<ul id="reviews">
+<?php echo $this->partialLoop('place/_reviewItem.phtml', $this->reviews) ?>
+</ul>
+<?php endif; ?>

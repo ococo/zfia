@@ -1,0 +1,35 @@
+form div#loginDiv {
+    width: 500px;
+}
+
+form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+form ul li {
+    margin: 0;
+    clear: both;
+    border-top: 1px dotted #666;
+    padding: 0.5em 0;
+}
+
+label.leftalign {
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding-right: 10px;
+    line-height: 1.6em;
+    text-align: right;
+    width: 100px;
+}
+
+form li.submit {
+    padding-left: 110px;
+}
+
+textarea {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 1em;
+}

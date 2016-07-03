@@ -1,0 +1,9 @@
+<?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/form.css'); ?>
+<h2><?php echo $this->escape($this->issue->title); ?></h2>
+<h3>
+    ID #<?php echo $this->issue->id; ?> 
+    | Created by <a href="#" title="Users Profile"><?php echo $this->creator->name(); ?></a> 
+</h3>
+
+<?php echo(empty($this->formResponse) ? '' : '<p class="errors">' . $this->formResponse . '</p>'); ?>
+<?php echo $this->form; ?>

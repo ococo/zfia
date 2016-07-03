@@ -1,0 +1,8 @@
+<h1><?php echo $this->escape($this->title);?></h1>
+<?php if(count($this->places)) : ?>
+<table>
+<?php foreach($this->places as $place) : ?>
+<?php echo $this->partialLoop('index/_placeRow.phtml', $this->places) ?>
+<?php endforeach; ?>
+</table>
+<?php endif; ?>

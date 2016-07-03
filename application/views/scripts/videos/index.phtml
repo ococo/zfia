@@ -1,0 +1,8 @@
+<h1>Videos</h1>
+<dl>
+<?php foreach ($this->playlistListFeed as $playlistEntry): ?>
+    <?php $id = substr(strrchr($playlistEntry->getPlaylistVideoFeedUrl(), '/'), 1); ?>
+    <dt><a href="/videos/list/id/<?php echo $id; ?>/"><?php echo $playlistEntry->title->text; ?></a></dt>
+    <dd><?php echo $playlistEntry->description->text; ?></dd>
+<?php endforeach; ?>
+</dl>

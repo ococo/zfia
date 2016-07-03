@@ -1,0 +1,27 @@
+<h1><?php echo $this->escape($this->title);?></h1>
+<?php if ($this->messages) : ?>
+<div id="error">
+There was a problem:
+<ul>
+<?php foreach ($this->messages['q'] as $message) : ?>
+<li><?php echo $message; ?></li> 
+<?php endforeach; ?> 
+</ul>
+</div>
+<?php else : ?>
+<p>You searched for <?php echo $this->escape($this->q); ?>. 
+<?php echo count($this->results);?> results found.
+</p>
+
+<ul>
+<?php foreach ($this->results as $result) : ?>
+<li><a href="<?php echo $this->getSearchResultUrl($result->class, $result->id); ?>">
+    <?php echo $this->escape($result->title);?></a>
+    <div class="summary">
+    <?php echo $this->escape($result->summary);?>
+    <!-- (<?php echo $result->score;?>) --></div>
+</li>
+<?php endforeach; ?>
+
+<?php endif; ?>
+
